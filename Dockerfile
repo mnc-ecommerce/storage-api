@@ -13,6 +13,7 @@ RUN npm run build
 
 FROM node:18-alpine
 WORKDIR /app
+RUN npm install -g npm@9.8.1
 COPY migrations migrations
 COPY ecosystem.config.js package.json ./
 COPY --from=0 /app/node_modules node_modules
